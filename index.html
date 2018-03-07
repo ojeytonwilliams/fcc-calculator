@@ -1,0 +1,28 @@
+<div class="calc">
+  <div class="case" id="app">
+    <div class="title">freeCodeCalculator
+    </div>
+    <div class="display">
+      <div class="history">
+        {{ error ? error : history }}
+      </div>
+      <div class="io">
+        {{ error ? "" : output }}
+      </div>
+    </div>
+    <div class="keypad">
+      <button @click="allClear" class="AC">AC</button>
+      <button @click="clearEntry" class="CE">CE</button>
+      <button @click="appendHistory('/')" class="divide">÷</button>
+      <button @click="appendHistory('×')" class="multiply">×</button>
+
+      <digit-elem v-for="digit in digits" v-bind:digitprop="digit">
+      </digit-elem>
+      <button @click="appendHistory('+')" class="plus">+</button>
+      <button @click="compute" class="equals">=</button>
+      <button @click="appendHistory('-')" class="minus">-</button>
+      <button @click="appendHistory('.')" class="point">.</button>
+
+    </div>
+  </div>
+</div>
